@@ -1,0 +1,35 @@
+@0
+# 0, 0
+
+@1
+# 1, 0
+MOV UP, ACC
+ADD ACC
+MOV ACC, DOWN
+
+@2
+# 2, 0
+
+@3
+# 0, 1
+
+@4
+# 1, 1
+MOV UP, DOWN
+
+@5
+# 2, 1
+
+@6
+# 3, 1
+
+@7
+# 1, 2
+MOV UP, RIGHT
+
+@8
+# 2, 2
+MOV LEFT, DOWN
+
+@9
+# 3, 2

@@ -1,0 +1,50 @@
+@0
+# 0, 0
+
+@1
+# 1, 0
+MOV UP, RIGHT
+
+@2
+# 2, 0
+^: MOV UP, ACC
+   JLZ <
+   JGZ >
+   JEZ =
+
+<: MOV LEFT, DOWN
+   MOV RIGHT, NIL
+   JMP ^
+>: MOV RIGHT, DOWN
+   MOV LEFT, NIL
+   JMP ^
+=: MOV LEFT, ACC
+   ADD RIGHT
+   MOV ACC, DOWN
+
+@3
+# 3, 0
+MOV UP, LEFT
+
+@4
+# 0, 1
+
+@5
+# 1, 1
+
+@6
+# 2, 1
+MOV UP, DOWN
+
+@7
+# 3, 1
+
+@8
+# 1, 2
+
+@9
+# 2, 2
+MOV UP, DOWN
+
+@10
+# 3, 2

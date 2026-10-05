@@ -1,0 +1,45 @@
+@0
+# 1, 0
+
+@1
+# 2, 0
+
+@2
+# 3, 0
+
+@3
+# 0, 1
+
+@4
+# 1, 1
+
+@5
+# 2, 1
+
+@6
+# 3, 1
+
+@7
+# 0, 2
+
+@8
+# 1, 2
+MOV 3, RIGHT
+MOV 0, RIGHT
+
+@9
+# 2, 2
+MOV 0, DOWN
+MOV ACC, DOWN
+SAV
+MOV 35, ACC
+
+^: MOV LEFT, DOWN
+   SUB 1
+   JGZ ^
+   MOV -1, DOWN
+   SWP
+   ADD 1
+
+@10
+# 3, 2

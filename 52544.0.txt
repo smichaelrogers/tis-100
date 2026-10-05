@@ -1,0 +1,93 @@
+@0
+# 0, 0
+
+@1
+# 1, 0
+MOV UP, DOWN
+
+@2
+# 2, 0
+
+@3
+# 0, 1
+
+# A = H
+# B = X
+0:MOV RIGHT,ACC #X
+  SAV
+  MOV RIGHT,ACC #H
+# WHILE H > 0
+>:JEZ 0         #A
+  SWP      #A -> B
+  MOV ACC,RIGHT
+  SWP      #B -> A
+  SUB 1         #A
+  JMP >         #A
+
+@4
+0:MOV UP, LEFT  #X
+  MOV UP, RIGHT #Y
+  MOV UP, ACC   #W
+  SWP # A=H, B=W
+  MOV UP, ACC   #H
+  MOV ACC,LEFT  #H
+  MOV ACC,RIGHT #H
+>:JEZ 0         #A
+  SWP      #A -> B
+  MOV LEFT, DOWN#B
+  MOV RIGHT,DOWN#B
+  MOV ACC, DOWN #B
+  SWP      #B -> A
+  SUB 1         #A
+  JMP >         #A
+
+@5
+# 2, 1
+
+# A = H
+# B = Y
+0:MOV LEFT,ACC  #Y
+  SAV
+  MOV LEFT,ACC  #H
+# WHILE H > 0
+>:JEZ 0         #A
+  SWP      #A -> B
+  MOV ACC,LEFT  #B
+  ADD 1         #B
+  SWP      #B -> A
+  SUB 1         #A
+  JMP >         #A
+
+@6
+# 3, 1
+
+@7
+# 0, 2
+
+@8
+# 1, 2
+
+# PACKETS
+# 0: X
+# 1: Y
+# 2: W
+MOV UP, RIGHT
+
+@9
+# 2, 2
+
+# A = H
+# {X,Y,CLR*,-1}
+MOV LEFT, DOWN  #X
+MOV LEFT, DOWN  #Y
+MOV LEFT, ACC   #H
+# WHILE W > 0
+>:JEZ 0
+  MOV 3, DOWN
+  SUB 1
+  JMP >
+
+0:MOV -1, DOWN
+
+@10
+# 3, 2

@@ -1,0 +1,53 @@
+@0
+# 0, 0
+
+@1
+# 1, 0
+MOV UP, DOWN
+
+@2
+# 2, 0
+MOV UP, ACC
+MOV ACC, DOWN
+
+@3
+# 3, 0
+
+@4
+# 1, 1
+MOV UP, RIGHT
+
+@5
+MOV UP, ACC
+SAV
+MOV LEFT, ACC
+^: JEZ =
+   JLZ <
+   SUB 1
+   SWP
+   MOV ACC, RIGHT
+   SWP
+<: JMP ^
+=: MOV 0, RIGHT
+
+@6
+# 1, 2
+
+@7
+# 2, 2
+MOV RIGHT, DOWN
+
+@8
+# 3, 2
+^: MOV UP, ACC
+   JEZ =
+   JGZ >
+
+>: MOV ACC, UP
+   SWP
+   ADD UP
+   SWP
+   JMP ^
+
+=: SWP
+   MOV ACC, LEFT

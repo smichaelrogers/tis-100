@@ -1,0 +1,43 @@
+@0
+# 0, 0
+
+@1
+MOV 0, RIGHT
+^: MOV UP, ACC
+   JEZ =
+   MOV ACC, RIGHT
+   JMP ^
+
+=: MOV RIGHT, ACC
+   JGZ >
+   JEZ 0
+   JMP ^
+
+>: MOV ACC, DOWN
+   JMP =
+
+0: MOV 0, DOWN
+
+@2
+# 3, 0
+
+@3
+# 0, 1
+
+@4
+# 1, 1
+MOV UP, RIGHT
+
+@5
+# 2, 1
+MOV LEFT, DOWN
+
+@6
+# 3, 1
+
+@7
+# 2, 2
+MOV UP, DOWN
+
+@8
+# 3, 2
